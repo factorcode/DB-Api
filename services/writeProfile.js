@@ -57,15 +57,12 @@ const writeProfile = async (profileData) => {
       }
 
     try {
-        let data = await save(profileData); 
+        let data = await save(insert); 
         return data;
     }
     catch (e) {
         console.log(e);
     }    
 }
-
-
-
 
 module.exports = { writeProfile };

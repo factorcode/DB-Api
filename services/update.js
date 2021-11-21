@@ -108,8 +108,11 @@ const updateProfileHistory = async (userId, newItem) => {
 
     if (completeProfile.Item.history) {
         let updates;
-        if(completeProfile.Item.history.length == 2)
-           updates = completeProfile.Item.history.shift();
+        if(completeProfile.Item.history.length == 5)
+        {
+            updates = completeProfile.Item.history;
+            updates.pop();
+        }           
 
         newHistory = updates ? [newItem].concat(updates) : [newItem].concat(completeProfile.Item.history)
     }
@@ -139,7 +142,6 @@ const updateProfileBadge = async (userId, badgedata) => {
 // let badgedata = {id: 3, value: false}
 
 // let historyItem = {
-//     id:1,
 //     itemName: "New Item Last 2",
 //     imgPath: 'https://picsum.photos/200/300',
 //     scannedDate: "21 Oct 2021",
